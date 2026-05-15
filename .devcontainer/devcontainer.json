@@ -1,0 +1,26 @@
+{
+  "name": "Puter Account Creator with Desktop",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "vscode",
+      "noVncVersion": "1.5.0"
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt && playwright install chromium --with-deps",
+  "forwardPorts": [6080, 8080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Desktop (noVNC)",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
+  }
+}
